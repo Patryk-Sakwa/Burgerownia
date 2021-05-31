@@ -32,10 +32,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(final HttpSecurity http) throws Exception {
         http.authorizeRequests()
                 .antMatchers("/", "/menu", "/contact", "/login", "/registration").permitAll()
-                .antMatchers("/profile").hasAnyRole("ADMIN", "USER")
+                .antMatchers("/profile", "/checkout").hasAnyRole("ADMIN", "USER")
                 .antMatchers("/admin").hasRole("ADMIN")
                 .anyRequest().authenticated()
                 .and()
+                .csrf().disable()
                 .exceptionHandling().accessDeniedHandler(accessDeniedHandler())
                 .and()
                 .formLogin().loginPage("/login")
@@ -56,7 +57,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     }
 
     @Bean
-    public AccessDeniedHandler accessDeniedHandler(){
+    public AccessDeniedHandler accessDeniedHandler() {
         return new CustomAccessDeniedHandler();
     }
 }

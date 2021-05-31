@@ -42,10 +42,10 @@ public class LoginController {
     @GetMapping("/login")
     public String login(Model model, String error, String logout) {
         if (error != null)
-            model.addAttribute("error", "Your username and password is invalid.");
+            model.addAttribute("error", "Podane dane są nieprawidłowe.");
 
         if (logout != null)
-            model.addAttribute("message", "You have been logged out successfully.");
+            model.addAttribute("message", "Zostałeś wylogowany.");
 
         return "login";
     }

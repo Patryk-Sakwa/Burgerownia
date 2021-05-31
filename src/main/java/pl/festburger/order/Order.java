@@ -1,9 +1,11 @@
 package pl.festburger.order;
 
-
+import pl.festburger.burger.Burger;
+import pl.festburger.user.User;
 import javax.persistence.*;
-import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.NotNull;
+import java.util.ArrayList;
+import java.util.List;
+
 
 @Entity
 @Table(name = "orders")
@@ -12,7 +14,14 @@ public class Order {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String burgers;
-    private String fullPrice;
+    private String totalPrice;
+
+    @OneToOne
+    @JoinColumn(name="user_id", unique = true)
+    private User user;
+
+    @OneToMany
+    private List<Burger> burgerList = new ArrayList<>();
 
     public Long getId() {
         return id;
@@ -30,11 +39,29 @@ public class Order {
         this.burgers = burgers;
     }
 
-    public String getFullPrice() {
-        return fullPrice;
+    public String getTotalPrice() {
+        return totalPrice;
     }
 
-    public void setFullPrice(String fullPrice) {
-        this.fullPrice = fullPrice;
+    public void setTotalPrice(String totalPrice) {
+        this.totalPrice = totalPrice;
     }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+/*
+    public List<Burger> getBurgersId() {
+        return burgersId;
+    }
+
+    public void setBurgersId(List<Burger> burgersId) {
+        this.burgersId = burgersId;
+    }
+ */
 }
+

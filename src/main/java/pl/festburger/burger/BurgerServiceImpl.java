@@ -12,4 +12,6 @@ public class BurgerServiceImpl implements BurgerService{
     public void save(Burger burger) {
         burgerRepository.save(burger);
     }
+
+
 }

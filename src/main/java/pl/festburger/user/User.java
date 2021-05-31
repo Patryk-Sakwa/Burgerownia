@@ -1,6 +1,9 @@
 package pl.festburger.user;
 
+import pl.festburger.order.Order;
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "users")
@@ -10,6 +13,7 @@ public class User {
     private String password;
     private String passwordConfirm;
     private String role = "ROLE_USER";
+
 
     public String getRole() {
         return role;

@@ -1,0 +1,1 @@
+insert into burgers values(1, 'opis','nazwa', '10.51'),(2, 'opis2','nazwa2', '20.51'),(3, 'opis3','nazwa3', '30.51');

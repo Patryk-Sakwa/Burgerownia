@@ -12,13 +12,15 @@
         <h2 class="form-burger-heading">Nowy burger!</h2>
         <spring:bind path="name">
             <div class="form-group">
-                <form:input type="text" path="name" class="form-control" placeholder="Nazwa" autofocus="true"></form:input>
+                <form:input type="text" path="name" class="form-control" placeholder="Nazwa"
+                            autofocus="true"></form:input>
             </div>
         </spring:bind>
 
         <spring:bind path="description">
             <div class="form-group">
-                <form:textarea cssStyle="height: 10em" type="text" path="description" class="form-control" placeholder="Opis"></form:textarea>
+                <form:textarea cssStyle="height: 10em" type="text" path="description" class="form-control"
+                               placeholder="Opis"></form:textarea>
             </div>
         </spring:bind>
 

@@ -1,6 +1,10 @@
 package pl.festburger.burger;
 
+
+import pl.festburger.order.Order;
+
 import javax.persistence.*;
+
 
 @Entity
 @Table(name = "burgers")

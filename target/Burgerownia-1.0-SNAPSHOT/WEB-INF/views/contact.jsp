@@ -9,7 +9,6 @@
             loading="lazy"
             allowfullscreen
             src="https://www.google.com/maps/embed/v1/place?q=place_id:ChIJl96zmeHaFkcRtDQsyIwgxxQ&key=AIzaSyACWBoEtWMoENrTV2GDXR2w60C4oxAPH9Q">
-
     </iframe>
 </div>
 </body>
