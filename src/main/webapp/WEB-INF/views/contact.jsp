@@ -8,7 +8,7 @@
             style="border-radius: 5px; border-color: goldenrod"
             loading="lazy"
             allowfullscreen
-            src="https://www.google.com/maps/embed/v1/place?q=place_id:ChIJl96zmeHaFkcRtDQsyIwgxxQ&key=AIzaSyACWBoEtWMoENrTV2GDXR2w60C4oxAPH9Q">
+            src="https://www.google.com/maps/embed/v1/place?q=place_id:ChIJl96zmeHaFkcRtDQsyIwgxxQ&key=">
     </iframe>
 </div>
 </body>
