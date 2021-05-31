@@ -2,12 +2,12 @@ package pl.festburger.user;
 
 import pl.festburger.order.Order;
 import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.List;
 
 @Entity
 @Table(name = "users")
 public class User {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String username;
     private String password;
@@ -23,8 +23,7 @@ public class User {
         this.role = role;
     }
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+
     public Long getId() {
         return id;
     }

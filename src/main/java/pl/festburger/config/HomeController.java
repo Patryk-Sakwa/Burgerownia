@@ -2,15 +2,20 @@ package pl.festburger.config;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import pl.festburger.burger.Burger;
 import pl.festburger.burger.BurgerRepository;
 import pl.festburger.burger.BurgerService;
+import pl.festburger.order.Order;
 import pl.festburger.order.OrderRepository;
+import pl.festburger.user.UserRepository;
 
 import java.sql.SQLOutput;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.logging.Logger;
@@ -28,6 +33,9 @@ public class HomeController {
 
     @Autowired
     private BurgerService burgerService;
+
+    @Autowired
+    private UserRepository userRepository;
 
 
     @GetMapping("/")
@@ -66,8 +74,18 @@ public class HomeController {
         for (int i = 0; i < idOfBurger.size(); i++) {
             totalPrice += Double.parseDouble(burgerRepository.findPriceById(Long.parseLong(idOfBurger.get(i))));
         }
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        Order order = new Order();
+        order.setTotalPrice(totalPrice.toString());
+        List<Burger> burgers = new ArrayList<>();
+        for (int i = 0; i < idOfBurger.size(); i++) {
+            burgers.add(burgerRepository.findBurgerById(Long.parseLong(idOfBurger.get(i))));
+        }
+        order.setBurgerList(burgers);
+        order.setUser(userRepository.findByUsername(auth.getName()));
+        orderRepository.save(order);
+        return "redirect:/checkout";
 
-        return "redirect:/menu";
     }
 
     @GetMapping("/contact")

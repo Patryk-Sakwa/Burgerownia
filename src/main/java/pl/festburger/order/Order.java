@@ -13,7 +13,6 @@ public class Order {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String burgers;
     private String totalPrice;
 
     @OneToOne
@@ -31,13 +30,6 @@ public class Order {
         this.id = id;
     }
 
-    public String getBurgers() {
-        return burgers;
-    }
-
-    public void setBurgers(String burgers) {
-        this.burgers = burgers;
-    }
 
     public String getTotalPrice() {
         return totalPrice;
@@ -54,14 +46,13 @@ public class Order {
     public void setUser(User user) {
         this.user = user;
     }
-/*
-    public List<Burger> getBurgersId() {
-        return burgersId;
+
+    public List<Burger> getBurgerList() {
+        return burgerList;
     }
 
-    public void setBurgersId(List<Burger> burgersId) {
-        this.burgersId = burgersId;
+    public void setBurgerList(List<Burger> burgerList) {
+        this.burgerList = burgerList;
     }
- */
 }
 
